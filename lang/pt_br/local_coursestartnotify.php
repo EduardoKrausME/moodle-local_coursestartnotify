@@ -22,26 +22,26 @@
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Notificações de início do curso';
+$string['body'] = 'Mensagem personalizada';
+$string['body_desc'] = 'Deixe vazio para usar o texto padrão traduzido. Placeholders disponíveis: {firstname}, {coursename}, {startdate}, {courseurl}.';
 $string['enabled'] = 'Ativar notificações';
 $string['enabled_desc'] = 'Envia uma notificação aos usuários com matrícula ativa quando a data de início do curso chegar.';
 $string['lookbackhours'] = 'Janela de verificação (horas)';
 $string['lookbackhours_desc'] = 'Em cada execução são verificados os cursos que iniciaram dentro desta quantidade de horas. Os envios concluídos ficam registrados e não são duplicados. A data de instalação é sempre respeitada, portanto a instalação do plugin não dispara notificações de cursos históricos.';
+$string['messageprovider:coursestart'] = 'Notificação de início do curso';
+$string['notificationbody'] = 'Olá {$a->firstname},\\n\\nO curso "{$a->coursename}" chegou à data de início ({$a->startdate}) e já está disponível para você.\\n\\nAcesse o curso: {$a->courseurl}';
+$string['notificationsubject'] = 'Seu curso {$a->coursename} já está disponível';
 $string['notifyhidden'] = 'Notificar cursos ocultos';
 $string['notifyhidden_desc'] = 'Quando ativado, o usuário pode receber a notificação mesmo se o curso estiver oculto. Deixe desativado a menos que a visibilidade do curso seja controlada separadamente no lançamento.';
-$string['subject'] = 'Assunto personalizado';
-$string['subject_desc'] = 'Deixe vazio para usar o texto padrão traduzido. Placeholders disponíveis: {firstname}, {coursename}, {startdate}, {courseurl}.';
-$string['body'] = 'Mensagem personalizada';
-$string['body_desc'] = 'Deixe vazio para usar o texto padrão traduzido. Placeholders disponíveis: {firstname}, {coursename}, {startdate}, {courseurl}.';
-$string['retentiondays'] = 'Retenção do histórico de envio (dias)';
-$string['retentiondays_desc'] = 'Por quanto tempo manter o registro usado para impedir notificações duplicadas. Mínimo de 30 dias.';
-$string['task_sendnotifications'] = 'Enviar notificações de início do curso';
-$string['messageprovider:coursestart'] = 'Notificação de início do curso';
-$string['notificationsubject'] = 'Seu curso {$a->coursename} já está disponível';
-$string['notificationbody'] = 'Olá {$a->firstname},\n\nO curso "{$a->coursename}" chegou à data de início ({$a->startdate}) e já está disponível para você.\n\nAcesse o curso: {$a->courseurl}';
+$string['pluginname'] = 'Notificações de início do curso';
 $string['privacy:metadata:log'] = 'Armazena quais notificações de início de curso foram enviadas para impedir o reenvio repetido ao mesmo usuário.';
 $string['privacy:metadata:log:courseid'] = 'O curso que originou a notificação.';
-$string['privacy:metadata:log:userid'] = 'O usuário que recebeu a notificação.';
 $string['privacy:metadata:log:startdate'] = 'A data de início do curso que originou esta notificação.';
 $string['privacy:metadata:log:timesent'] = 'A data e hora em que a notificação foi enviada.';
+$string['privacy:metadata:log:userid'] = 'O usuário que recebeu a notificação.';
 $string['privacy:path'] = 'Notificações de início do curso';
+$string['retentiondays'] = 'Retenção do histórico de envio (dias)';
+$string['retentiondays_desc'] = 'Por quanto tempo manter o registro usado para impedir notificações duplicadas. Mínimo de 30 dias.';
+$string['subject'] = 'Assunto personalizado';
+$string['subject_desc'] = 'Deixe vazio para usar o texto padrão traduzido. Placeholders disponíveis: {firstname}, {coursename}, {startdate}, {courseurl}.';
+$string['task_sendnotifications'] = 'Enviar notificações de início do curso';

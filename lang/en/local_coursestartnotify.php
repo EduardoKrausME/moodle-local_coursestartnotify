@@ -22,26 +22,26 @@
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Course start notifications';
+$string['body'] = 'Custom message';
+$string['body_desc'] = 'Leave empty to use the translated default. Supported placeholders: {firstname}, {coursename}, {startdate}, {courseurl}.';
 $string['enabled'] = 'Enable notifications';
 $string['enabled_desc'] = 'Send a notification to active enrolled users when the course start date is reached.';
 $string['lookbackhours'] = 'Look-back window (hours)';
 $string['lookbackhours_desc'] = 'Courses that started within this many hours are checked on each run. Successful sends are logged and are not duplicated. The installation time is always respected, so installing the plugin does not notify historical courses.';
+$string['messageprovider:coursestart'] = 'Course start notification';
+$string['notificationbody'] = 'Hello {$a->firstname},\\n\\nThe course "{$a->coursename}" has reached its start date ({$a->startdate}) and is now ready for you.\\n\\nAccess the course: {$a->courseurl}';
+$string['notificationsubject'] = 'Your course {$a->coursename} is now available';
 $string['notifyhidden'] = 'Notify for hidden courses';
 $string['notifyhidden_desc'] = 'If enabled, users may be notified even when the course itself is hidden. Leave disabled unless course visibility is controlled separately at launch time.';
-$string['subject'] = 'Custom subject';
-$string['subject_desc'] = 'Leave empty to use the translated default. Supported placeholders: {firstname}, {coursename}, {startdate}, {courseurl}.';
-$string['body'] = 'Custom message';
-$string['body_desc'] = 'Leave empty to use the translated default. Supported placeholders: {firstname}, {coursename}, {startdate}, {courseurl}.';
-$string['retentiondays'] = 'Send log retention (days)';
-$string['retentiondays_desc'] = 'How long to keep records used to prevent duplicate notifications. Minimum: 30 days.';
-$string['task_sendnotifications'] = 'Send course start notifications';
-$string['messageprovider:coursestart'] = 'Course start notification';
-$string['notificationsubject'] = 'Your course {$a->coursename} is now available';
-$string['notificationbody'] = 'Hello {$a->firstname},\n\nThe course "{$a->coursename}" has reached its start date ({$a->startdate}) and is now ready for you.\n\nAccess the course: {$a->courseurl}';
+$string['pluginname'] = 'Course start notifications';
 $string['privacy:metadata:log'] = 'Stores which course start notifications were sent so the same user is not notified repeatedly.';
 $string['privacy:metadata:log:courseid'] = 'The course that generated the notification.';
-$string['privacy:metadata:log:userid'] = 'The user who received the notification.';
 $string['privacy:metadata:log:startdate'] = 'The course start date that generated this notification.';
 $string['privacy:metadata:log:timesent'] = 'The time the notification was sent.';
+$string['privacy:metadata:log:userid'] = 'The user who received the notification.';
 $string['privacy:path'] = 'Course start notifications';
+$string['retentiondays'] = 'Send log retention (days)';
+$string['retentiondays_desc'] = 'How long to keep records used to prevent duplicate notifications. Minimum: 30 days.';
+$string['subject'] = 'Custom subject';
+$string['subject_desc'] = 'Leave empty to use the translated default. Supported placeholders: {firstname}, {coursename}, {startdate}, {courseurl}.';
+$string['task_sendnotifications'] = 'Send course start notifications';
