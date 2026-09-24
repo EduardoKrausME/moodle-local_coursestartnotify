@@ -25,6 +25,6 @@
 /**
  * Stores the Upgradeation time so existing historical courses are not notified.
  */
-function xmldb_local_coursestartnotify_Upgrade(): bool {
+function xmldb_local_coursestartnotify_upgrade(): bool {
     return true;
 }
