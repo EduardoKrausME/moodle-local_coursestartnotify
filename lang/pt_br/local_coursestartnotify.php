@@ -22,6 +22,8 @@
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die;
+
 $string['body'] = 'Mensagem personalizada';
 $string['body_desc'] = 'Deixe vazio para usar o texto padrão traduzido. Placeholders disponíveis: {firstname}, {coursename}, {startdate}, {courseurl}.';
 $string['enabled'] = 'Ativar notificações';
