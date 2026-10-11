@@ -20,8 +20,10 @@ use context;
 use context_course;
 use core_privacy\local\metadata\collection;
 use core_privacy\local\request\approved_contextlist;
+use core_privacy\local\request\approved_userlist;
 use core_privacy\local\request\contextlist;
 use core_privacy\local\request\transform;
+use core_privacy\local\request\userlist;
 use core_privacy\local\request\writer;
 
 /**
@@ -33,7 +35,8 @@ use core_privacy\local\request\writer;
  */
 class provider implements
     \core_privacy\local\metadata\provider,
-    \core_privacy\local\request\plugin\provider {
+    \core_privacy\local\request\plugin\provider,
+    \core_privacy\local\request\core_userlist_provider {
 
     /**
      * Describes stored personal data.
@@ -77,6 +80,23 @@ class provider implements
     }
 
     /**
+     * Lists users with sent notifications in the requested course context.
+     *
+     * @param userlist $userlist Users in this context.
+     */
+    public static function get_users_in_context(userlist $userlist): void {
+        $context = $userlist->get_context();
+        if (!$context instanceof context_course) {
+            return;
+        }
+
+        $sql = "SELECT DISTINCT l.userid
+                  FROM {local_coursestartnotify_log} l
+                 WHERE l.courseid = :courseid";
+        $userlist->add_from_sql('userid', $sql, ['courseid' => $context->instanceid]);
+    }
+
+    /**
      * Exports data for the approved contexts.
      *
      * @param approved_contextlist $contextlist Approved context list.
@@ -113,6 +133,29 @@ class provider implements
                 (object) ['notifications' => $data]
             );
         }
+    }
+
+    /**
+     * Deletes data for only the approved users in one course context.
+     *
+     * @param approved_userlist $userlist Approved users and context.
+     */
+    public static function delete_data_for_users(approved_userlist $userlist): void {
+        global $DB;
+
+        $context = $userlist->get_context();
+        $userids = $userlist->get_userids();
+        if (!$context instanceof context_course || !$userids) {
+            return;
+        }
+
+        [$insql, $params] = $DB->get_in_or_equal($userids, SQL_PARAMS_NAMED, 'userid');
+        $params['courseid'] = $context->instanceid;
+        $DB->delete_records_select(
+            'local_coursestartnotify_log',
+            "courseid = :courseid AND userid $insql",
+            $params
+        );
     }
 
     /**

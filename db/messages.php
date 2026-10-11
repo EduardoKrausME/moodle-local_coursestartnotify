@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 $messageproviders = [
     'coursestart' => [
         'defaults' => [
-            'email' => MESSAGE_FORCED,
+            'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
         ],
     ],

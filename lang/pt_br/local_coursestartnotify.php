@@ -31,7 +31,11 @@ $string['enabled_desc'] = 'Envia uma notificação aos usuários com matrícula 
 $string['lookbackhours'] = 'Janela de verificação (horas)';
 $string['lookbackhours_desc'] = 'Em cada execução são verificados os cursos que iniciaram dentro desta quantidade de horas. Os envios concluídos ficam registrados e não são duplicados. A data de instalação é sempre respeitada, portanto a instalação do plugin não dispara notificações de cursos históricos.';
 $string['messageprovider:coursestart'] = 'Notificação de início do curso';
-$string['notificationbody'] = 'Olá {$a->firstname},\\n\\nO curso "{$a->coursename}" chegou à data de início ({$a->startdate}) e já está disponível para você.\\n\\nAcesse o curso: {$a->courseurl}';
+$string['notificationbody'] = 'Olá {$a->firstname},
+
+O curso "{$a->coursename}" chegou à data de início ({$a->startdate}) e já está disponível para você.
+
+Acesse o curso: {$a->courseurl}';
 $string['notificationsubject'] = 'Seu curso {$a->coursename} já está disponível';
 $string['notifyhidden'] = 'Notificar cursos ocultos';
 $string['notifyhidden_desc'] = 'Quando ativado, o usuário pode receber a notificação mesmo se o curso estiver oculto. Deixe desativado a menos que a visibilidade do curso seja controlada separadamente no lançamento.';

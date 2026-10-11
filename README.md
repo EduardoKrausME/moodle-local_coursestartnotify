@@ -9,7 +9,7 @@ Local plugin for Moodle that notifies active enrolled users when a course reache
 - Historical courses from before the plugin installation are never notified.
 - Hidden courses are ignored by default and can be enabled in the plugin settings.
 - Active enrolled users are notified through Moodle's Message API.
-- Email is forced for this notification provider; popup notifications are enabled by default.
+- Email and popup notifications are enabled by default, but users can disable either channel in notification preferences.
 - Each successful send is recorded by `courseid + userid + startdate`, preventing duplicate messages.
 - If the course start date is changed to a new future date, the new date is treated as a new occurrence and can generate a new notification.
 - Failed sends are retried while the course remains inside the configured look-back window.
@@ -19,6 +19,8 @@ Local plugin for Moodle that notifies active enrolled users when a course reache
 Copy the directory to:
 
     local/coursestartnotify
+
+Alternatively, download `local_coursestartnotify.zip` from the GitHub release assets. Its root directory is `coursestartnotify/`, ready for Moodle's plugin installer.
 
 Then complete the Moodle upgrade through Site administration or CLI.
 

@@ -106,8 +106,28 @@ class notifier {
             }
 
             $foundusers = true;
+            // Fetch sent recipients once per page, rather than checking each user individually.
+            $userids = array_map(static function ($user): int {
+                return (int) $user->id;
+            }, $users);
+            [$insql, $inparams] = $DB->get_in_or_equal($userids, SQL_PARAMS_NAMED, 'recipient');
+            $sentuserids = $DB->get_fieldset_select(
+                self::LOG_TABLE,
+                'userid',
+                "courseid = :courseid AND startdate = :startdate AND userid $insql",
+                array_merge([
+                    'courseid' => $course->id,
+                    'startdate' => $course->startdate,
+                ], $inparams)
+            );
+            $sentlookup = array_fill_keys($sentuserids, true);
+
             foreach ($users as $user) {
                 if ($user->deleted || $user->suspended || isguestuser($user)) {
+                    continue;
+                }
+
+                if (isset($sentlookup[$user->id])) {
                     continue;
                 }
 
@@ -116,9 +136,6 @@ class notifier {
                     'userid' => $user->id,
                     'startdate' => $course->startdate,
                 ];
-                if ($DB->record_exists(self::LOG_TABLE, $conditions)) {
-                    continue;
-                }
 
                 try {
                     $messageid = $this->send_to_user($course, $context, $user, $coursename);

@@ -31,7 +31,11 @@ $string['enabled_desc'] = 'Send a notification to active enrolled users when the
 $string['lookbackhours'] = 'Look-back window (hours)';
 $string['lookbackhours_desc'] = 'Courses that started within this many hours are checked on each run. Successful sends are logged and are not duplicated. The installation time is always respected, so installing the plugin does not notify historical courses.';
 $string['messageprovider:coursestart'] = 'Course start notification';
-$string['notificationbody'] = 'Hello {$a->firstname},\\n\\nThe course "{$a->coursename}" has reached its start date ({$a->startdate}) and is now ready for you.\\n\\nAccess the course: {$a->courseurl}';
+$string['notificationbody'] = 'Hello {$a->firstname},
+
+The course "{$a->coursename}" has reached its start date ({$a->startdate}) and is now ready for you.
+
+Access the course: {$a->courseurl}';
 $string['notificationsubject'] = 'Your course {$a->coursename} is now available';
 $string['notifyhidden'] = 'Notify for hidden courses';
 $string['notifyhidden_desc'] = 'If enabled, users may be notified even when the course itself is hidden. Leave disabled unless course visibility is controlled separately at launch time.';
