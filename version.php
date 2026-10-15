@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2026101200;
-$plugin->release = '1.0.5';
+$plugin->version = 2026101500;
+$plugin->release = '1.0.6';
 $plugin->component = 'local_coursestartnotify';
 $plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_STABLE;
