@@ -27,31 +27,6 @@ The default notification text is translated using the recipient's language. If a
 - `{startdate}`
 - `{courseurl}`
 
-## Troubleshooting "Failed to load task"
-
-If the Moodle upgrade reports `Failed to load task: \local_coursestartnotify\task\send_notifications`,
-the scheduled task manager could not autoload the PHP class. The task is declared
-in `db/tasks.php` and its file must exist at
-`classes/task/send_notifications.php` inside the installed plugin directory.
-
-From the **Moodle project root** (the directory containing `admin/cli/`),
-for an installation that uses `public/`:
-
-    test -f public/local/coursestartnotify/classes/task/send_notifications.php
-    php -l public/local/coursestartnotify/classes/task/send_notifications.php
-    php admin/cli/purge_caches.php
-    php admin/cli/scheduled_task.php --list
-
-For Moodle installations without `public/`, remove `public/` from the file
-paths above. Run CLI commands as the same system account that normally manages
-Moodle, and make sure the deployed PHP files are readable by the web server.
-
-If the task still cannot be found, verify the exact deployed plugin directory,
-check for incomplete deployments or stale PHP OPcache in the web server, and
-confirm that `classes/task/send_notifications.php` matches the release
-being installed. Restart or reset the PHP runtime's OPcache if necessary.
-Do not edit Moodle core files or delete task rows from the database to mask
-this warning.
 
 ## Testing the task manually
 
