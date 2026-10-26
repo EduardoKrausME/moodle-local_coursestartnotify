@@ -14,22 +14,6 @@ Local plugin for Moodle that notifies active enrolled users when a course reache
 - If the course start date is changed to a new future date, the new date is treated as a new occurrence and can generate a new notification.
 - Failed sends are retried while the course remains inside the configured look-back window.
 
-## Installation
-
-Copy the directory to `local/coursestartnotify` inside Moodle's public web code.
-For Moodle versions using a `public/` subdirectory (including Moodle 5.2),
-the path relative to the Moodle project root is:
-
-    public/local/coursestartnotify
-
-For older installations without `public/`, use:
-
-    local/coursestartnotify
-
-Alternatively, download `local_coursestartnotify.zip` from the GitHub release assets. Its root directory is `coursestartnotify/`, ready for Moodle's plugin installer.
-
-Then complete the Moodle upgrade through Site administration or CLI.
-
 ## Configuration
 
 Go to:
@@ -56,7 +40,6 @@ for an installation that uses `public/`:
     test -f public/local/coursestartnotify/classes/task/send_notifications.php
     php -l public/local/coursestartnotify/classes/task/send_notifications.php
     php admin/cli/purge_caches.php
-    php admin/cli/upgrade.php --non-interactive
     php admin/cli/scheduled_task.php --list
 
 For Moodle installations without `public/`, remove `public/` from the file
